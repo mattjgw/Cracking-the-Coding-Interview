@@ -7,7 +7,7 @@
 
 public class StringCompression {
 	
-	public static String stringCompression(String word){
+	public static String stringCompressionBad(String word){
 		if(word.length() == 1)
 			return word;
 		String compressed = "";
@@ -34,9 +34,25 @@ public class StringCompression {
 			return counted;
 		return word;
 	}
+	
+	public static String stringCompressionGood(String word) {
+		StringBuilder compressed = new StringBuilder();
+		int countConsecutive = 0;
+		for(int i = 0; i < word.length(); i++){
+			countConsecutive++;
+			if(i + 1 >= word.length() || word.charAt(i) != word.charAt(i+1)){
+				compressed.append(word.charAt(i));
+				compressed.append(countConsecutive);
+				countConsecutive = 0;
+			}
+			
+		}
+		return compressed.length() < word.length() ? compressed.toString() : word;
+	}
 
 	public static void main(String[] args) {
-		System.out.println(stringCompression("aabcccccaaa"));
+		System.out.println(stringCompressionBad("aabcccccaaa"));
+		System.out.println(stringCompressionGood("aabcccccaaa"));
 
 	}
 
