@@ -12,7 +12,7 @@ public class RemoveDups {
 		hs.add(n.data);
 		while(n.next != null){
 			if(hs.contains(n.next.data)){
-				n.setNext(n.next.next);
+				n.next = n.next.next;
 			}
 			else
 				hs.add(n.next.data);
@@ -26,7 +26,7 @@ public class RemoveDups {
 			LinkedListNode runner = n.next;
 			while(runner != null){
 				if(n.data == runner.data)
-					runner.prev.setNext(runner.next);
+					runner.prev.next = runner.next
 				runner = runner.next;
 			}
 			n = n.next;
