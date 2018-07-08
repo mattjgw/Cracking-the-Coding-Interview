@@ -2,9 +2,9 @@
 import java.util.EmptyStackException;
 
 public class MyStack<T> {
-	private static class StackNode<T> {
-		private T data;
-		private StackNode<T> next;
+	protected static class StackNode<T> {
+		protected T data;
+		protected StackNode<T> next;
 		
 		public StackNode(T data) {
 			this.data = data;
@@ -15,7 +15,7 @@ public class MyStack<T> {
 		}
 	}
 	
-	private StackNode<T> top;
+	protected StackNode<T> top;
 
 	public T pop() {
 		if (top == null) throw new EmptyStackException();
